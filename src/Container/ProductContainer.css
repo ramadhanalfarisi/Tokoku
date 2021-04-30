@@ -1,0 +1,36 @@
+.header {
+    background-color: dodgerblue;
+    padding: 10px 20px;
+}
+
+.header h5{
+    display: inline-block;
+    margin: 0;
+    font-size: 18px;
+}
+
+.cart {
+    max-width: 25px;
+    position: relative;
+    float: right;
+}
+
+.cart img{
+    max-width: 25px;
+}
+
+.cart span{
+    background-color: #000;
+    color: #fff;
+    padding: 0px 3px;
+    border-radius: 3px;
+    position: absolute;
+    bottom: 6px;
+    left: 4px;
+    font-size: 10px;
+}
+
+.btn-cart{
+    background-color: transparent;
+    border: none;
+}

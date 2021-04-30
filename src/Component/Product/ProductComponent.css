@@ -1,0 +1,65 @@
+.card {
+    box-shadow: 0px 3px 6px 0px #ccc;
+    border-radius: 10px;
+    max-width: 200px;
+    display: inline-block;
+    margin: 5px;
+}
+
+.card img{
+    max-width: 200px;
+    height: 150px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    overflow: hidden;
+}
+
+.card p {
+    padding: 0px 5px;
+}
+
+.card-title {
+    font-size: 15px;
+    font-weight: bold;
+    margin:0
+}
+
+.card-desc {
+    font-size: 14px;
+    color: crimson;
+    margin:0;
+}
+
+.counter {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    position: relative;
+}
+
+.counter .plus{
+    background-color: seagreen;
+    border: none;
+    box-shadow: 0px 4px 6px 0px #ccc;
+    width: 20%;
+    height: 30px;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.counter .num{
+    width: 60%;
+    display: inline-block;
+    text-align: center;
+}
+
+.counter .min{
+    border: none;
+    box-shadow: 0px 4px 6px 0px #ccc;
+    width: 20%;
+    height: 30px;
+    border-radius: 5px;
+    background-color: maroon;
+    color: #fff;
+}
