@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
+// import { connect } from 'react-redux'
 import './ProductComponent.css'
 
-export default class ProductComponent extends Component {
+class ProductComponent extends Component {
 
     state = {
         order: 0
@@ -72,3 +73,20 @@ export default class ProductComponent extends Component {
         )
     }
 }
+
+// const mapStateToProps = (state) => {
+//     return {
+//         order : state.order
+//     }
+// }
+
+// const mapDispatchToProps = (dispatch) => {
+//     return{
+//         plusOrder : () => dispatch({type : 'HANDLE_PLUS'}),
+//         minOrder : () => dispatch({type : 'HANDLE_MINUS'})
+//     }
+// }
+
+// export default connect(mapStateToProps,mapDispatchToProps)(ProductComponent) 
+export default ProductComponent
+

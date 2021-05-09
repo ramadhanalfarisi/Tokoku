@@ -1,9 +1,10 @@
 import React, { Component, Fragment } from 'react'
 import ProductComponent from '../Component/Product/ProductComponent'
 import './ProductContainer.css'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
+// import { connect } from 'react-redux';
 
-export default class ProductContainer extends Component {
+class ProductContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -53,7 +54,7 @@ export default class ProductContainer extends Component {
         return (
             <Fragment>
                 <div>
-                    <div className="header">
+                    {/* <div className="header">
                         <h5>Tokoku</h5>
                         <div className="cart">
                             <Link to="/cart">
@@ -62,7 +63,7 @@ export default class ProductContainer extends Component {
                             </Link>
                         </div>
 
-                    </div>
+                    </div> */}
                     <ProductComponent onHandleCounter={(value) => this.handleCounter(value)} onHandleCart={(value) => this.handleCart(value)} id="1" title="Ayam Geprek" price="10.000" image="https://kulinerkota.com/wp-content/uploads/2020/06/Ayam-Geprek-1.jpg" />
                     <ProductComponent onHandleCounter={(value) => this.handleCounter(value)} onHandleCart={(value) => this.handleCart(value)} id="2" title="Soto" price="12.000" image="https://www.masakapahariini.com/wp-content/uploads/2019/11/shutterstock_1469046305-780x440.jpg" />
                     <ProductComponent onHandleCounter={(value) => this.handleCounter(value)} onHandleCart={(value) => this.handleCart(value)} id="3" title="Pecel" price="8.000" image="https://asset.kompas.com/crops/etxkCgz_0N5ZbdP6YGJScpobPVk=/60x23:959x622/750x500/data/photo/2020/11/05/5fa3f16d9c1cf.jpg" />
@@ -76,3 +77,13 @@ export default class ProductContainer extends Component {
         )
     }
 }
+
+// const mapStateToProps = (state) => {
+//     return {
+//         order : state.order
+//     }
+// }
+
+// export default connect(mapStateToProps)(ProductContainer)
+export default ProductContainer
+

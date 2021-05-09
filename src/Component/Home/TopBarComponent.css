@@ -1,0 +1,53 @@
+.topbar {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    margin-right: 5px;
+    margin-left: 5px;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.icon-btn {
+    width: 15px;
+    height: 15px;
+    margin: 0px;
+}
+
+#top-bar-back {
+    border: none;
+    padding: 8px 10px;
+    border-radius: 10px;
+}
+
+.detail-link {
+    margin-left: 20px;
+    font-family: 'Poppins';
+    font-size: 14px;
+    font-weight: 600;
+    width: 65%;
+}
+.icon-input {
+    width: 5%;
+    margin-right: 10px;
+}
+#search{
+    border: none;
+    background-color: transparent;
+    font-family: 'Poppins';
+    font-size: 12px;
+    outline: none;
+    width: 85%;
+}
+
+#search:focus{
+    border: none;
+    outline: none;
+}
+
+.search-input{
+    background-color: #E0E0E0;
+    padding: 10px 10px;
+    border-radius: 10px;
+}
