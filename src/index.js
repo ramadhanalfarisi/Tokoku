@@ -2,29 +2,53 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import HomeContainer from './Container/HomeContainer';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
+import HomeContainer from './Container/Home/HomeContainer';
+
+const getTitlePath = (pathname) => {
+  let title, path = "";
+  if (pathname === '/') {
+    title = 'Dashboard';
+    path = 'dashboard';
+  } else if (pathname === '/food') {
+    title = 'Foods & Drinks';
+    path = 'food';
+  } else if (pathname === '/bills') {
+    title = 'Bills';
+    path = 'bills';
+  } else if (pathname === '/settings') {
+    title = 'Settings';
+    path = 'settings';
+  } else if (pathname === '/account') {
+    title = 'Account';
+    path = 'account';
+  }
+  return {
+    title: title,
+    path: path
+  }
+}
+
 
 const globalState = {
-  order: 0
+  title: getTitlePath(window.location.pathname).title,
+  path: getTitlePath(window.location.pathname).path
 }
 
 const rootReducer = (state = globalState, action) => {
   switch (action.type) {
-    case 'HANDLE_PLUS':
+    case 'HANDLE_TITLE':
       return {
         ...state,
-        order: state.order + 1
+        title: action.title,
+        path: action.path
       }
-    case 'HANDLE_MINUS':
-      var order = state.order;
-      if (state.order > 0) {
-        order -= 1;
-      }
+    case 'HANDLE_PATH':
       return {
         ...state,
-        order: order
+        path: getTitlePath(action.value).path,
+        title: getTitlePath(action.value).title
       }
     default:
       return state;

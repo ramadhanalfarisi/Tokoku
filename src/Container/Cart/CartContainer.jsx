@@ -1,9 +1,10 @@
 import React, { Component, Fragment } from 'react'
-import CartProductComponent from '../Component/Cart/CartProductComponent'
+import { connect } from 'react-redux';
+import CartProductComponent from '../../Component/Cart/CartProductComponent'
 import './CartContainer.css'
 
 let total = 0;
-export default class CartContainer extends Component {
+class CartContainer extends Component {
 
     constructor(props) {
         super(props)
@@ -15,6 +16,7 @@ export default class CartContainer extends Component {
 
 
     componentDidMount() {
+        this.props.handlePath(window.location.pathname)
         let cart = localStorage.getItem("cart");
         if (cart !== "") {
             var jsonCart = JSON.parse(cart);
@@ -69,3 +71,18 @@ export default class CartContainer extends Component {
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        path : state.path,
+        title: state.title
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        handlePath: (value) => dispatch({ type: 'HANDLE_PATH', value : value})
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(CartContainer)

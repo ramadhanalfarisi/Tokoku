@@ -1,0 +1,16 @@
+.part-2{
+    margin-left: 240px;
+    padding: 0px 10px;
+}
+.route{
+    margin: 5px 20px;
+}
+
+* {
+    font-family: 'Poppins';
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: url("../../assets/fonts/Poppins/Poppins-Regular.ttf");
+}

@@ -1,23 +1,38 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { connect } from 'react-redux'
 import backIcon from '../../assets/icons/left-arrow.svg'
 import searchIcon from '../../assets/icons/loupe.svg'
 import './TopBarComponent.css'
+import { useHistory } from 'react-router-dom'
 
-export default class TopBarComponent extends Component {
-    render() {
-        return (
-            <div className="topbar">
-                <button id="top-bar-back">
-                    <img src={backIcon} alt="" className="icon-btn" />
-                </button>
-                <div className="detail-link">
-                    <span>Dashboard</span>
-                </div>
-                <div className="search-input">
-                    <img src={searchIcon} alt="" className="icon-input" />
-                    <input type="text" name="" id="search" placeholder="Search..." />
-                </div>
+
+const TopBarComponent = (props) => {
+    let history = useHistory();
+
+    const goBack = () => {
+        history.goBack()
+    }
+    return (
+        <div className="topbar">
+            <button id="top-bar-back" onClick={goBack}>
+                <img src={backIcon} alt="" className="icon-btn" />
+            </button>
+            <div className="detail-link">
+                <span>{props.title}</span>
             </div>
-        )
+            <div className="search-input">
+                <img src={searchIcon} alt="" className="icon-input" />
+                <input type="text" name="" id="search" placeholder="Search..." />
+            </div>
+        </div>
+    )
+}
+
+const mapStateToProps = (state) => {
+    return {
+        title: state.title,
+        path: state.path
     }
 }
+
+export default connect(mapStateToProps)(TopBarComponent)

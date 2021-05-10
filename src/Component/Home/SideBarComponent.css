@@ -21,14 +21,14 @@
 }
 
 #logo-1 {
-    color: #000;
+    color: #16a085;
     font-size: 20px;
     font-weight: bold;
     font-family: 'Poppins';
 }
 
 #logo-2 {
-    color: crimson;
+    color: #ccc;
     font-size: 20px;
     font-weight: bold;
     font-family: 'Poppins';
@@ -57,6 +57,11 @@
     transition: 0.5s;
 }
 
+a {
+    text-decoration: none;
+    outline: none;
+}
+
 .menu:hover {
     background-color: #E0E0E0;
 }
@@ -65,14 +70,13 @@
     background-color: #16a085;
 }
 
+.active:hover {
+    background-color: #16a085;
+}
+
 .icon-menu {
     height: 15px;
     width: 15px;
     margin-right: 10px;
     color: #fff;
-}
-
-@font-face {
-    font-family: "Poppins";
-    src: url("../../assets/fonts/Poppins/Poppins-Regular.ttf");
 }

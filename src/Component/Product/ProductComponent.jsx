@@ -58,17 +58,21 @@ class ProductComponent extends Component {
 
     render() {
         return (
-            <div className="card">
+            <div className="card-product">
                 <img src={this.props.image} alt="" />
-                <p className="card-title">{this.props.title}</p>
-                <p className="card-desc">Rp. {this.props.price}</p>
-                <div className="counter">
+                <div className="detail-card">
+                    <p className="card-title">{this.props.title}</p>
+                    <p className="card-desc">{this.props.desc}</p>
+                    <p className="card-price">Rp. {this.props.price}</p>
+                </div>
+
+                {/* <div className="counter">
                     <button className="plus" onClick={this.plusOrder}>+</button>
                     <div className="num">
                         <span>{this.state.order}</span>
                     </div>
                     <button className="min" onClick={this.minOrder}>-</button>
-                </div>
+                </div> */}
             </div>
         )
     }
