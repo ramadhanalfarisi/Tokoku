@@ -33,7 +33,9 @@ const getTitlePath = (pathname) => {
 
 const globalState = {
   title: getTitlePath(window.location.pathname).title,
-  path: getTitlePath(window.location.pathname).path
+  path: getTitlePath(window.location.pathname).path,
+  modshow: false,
+  datamod: ""
 }
 
 const rootReducer = (state = globalState, action) => {
@@ -49,6 +51,12 @@ const rootReducer = (state = globalState, action) => {
         ...state,
         path: getTitlePath(action.value).path,
         title: getTitlePath(action.value).title
+      }
+    case 'HANDLE_MOD':
+      return {
+        ...state,
+        modshow : action.value,
+        datamod : action.data
       }
     default:
       return state;

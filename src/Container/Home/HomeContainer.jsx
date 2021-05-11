@@ -9,8 +9,10 @@ import DashboardContainer from '../Dashboard/DashboardContainer'
 import AccountContainer from '../Account/AccountContainer'
 import SettingContainer from '../Settings/SettingContainer'
 import BillContainer from '../Bills/BillContainer'
+import ModifierComponent from '../../Component/Product/ModifierComponent'
+import { connect } from 'react-redux'
 
-export default class HomeContainer extends Component {
+class HomeContainer extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -21,6 +23,8 @@ export default class HomeContainer extends Component {
         return (
             <BrowserRouter>
                 <Fragment>
+                    <div className={this.props.modshow === true ? "back-dark" : "back-transparent"}>
+                    </div>
                     <SideBarComponent />
                     <div className="part-2">
                         <TopBarComponent />
@@ -33,9 +37,24 @@ export default class HomeContainer extends Component {
                             <Route path="/bills" component={BillContainer} />
                         </div>
                     </div>
+                    <ModifierComponent />
                 </Fragment>
             </BrowserRouter>
 
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        modshow : state.modshow
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return{
+        handleMod : (value) => dispatch({type : 'HANDLE_MOD', value:value})
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(HomeContainer) 

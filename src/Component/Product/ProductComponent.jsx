@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 // import { connect } from 'react-redux'
 import './ProductComponent.css'
 
@@ -56,9 +57,19 @@ class ProductComponent extends Component {
         }
     }
 
+    handleModifier = () => {
+        let data = {
+            image : this.props.image,
+            title : this.props.title,
+            desc: this.props.desc,
+            price : this.props.price
+        }
+        this.props.handleMod(true,data)
+    }
+
     render() {
         return (
-            <div className="card-product">
+            <div className="card-product" onClick={() => this.handleModifier()}>
                 <img src={this.props.image} alt="" />
                 <div className="detail-card">
                     <p className="card-title">{this.props.title}</p>
@@ -78,19 +89,17 @@ class ProductComponent extends Component {
     }
 }
 
-// const mapStateToProps = (state) => {
-//     return {
-//         order : state.order
-//     }
-// }
+const mapStateToProps = (state) => {
+    return {
+        modshow : state.modshow
+    }
+}
 
-// const mapDispatchToProps = (dispatch) => {
-//     return{
-//         plusOrder : () => dispatch({type : 'HANDLE_PLUS'}),
-//         minOrder : () => dispatch({type : 'HANDLE_MINUS'})
-//     }
-// }
+const mapDispatchToProps = (dispatch) => {
+    return{
+        handleMod : (value,data) => dispatch({type : 'HANDLE_MOD', value:value, data: data})
+    }
+}
 
-// export default connect(mapStateToProps,mapDispatchToProps)(ProductComponent) 
-export default ProductComponent
+export default connect(mapStateToProps,mapDispatchToProps)(ProductComponent) 
 

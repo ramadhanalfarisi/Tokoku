@@ -62,7 +62,6 @@ class ProductContainer extends Component {
                     <ProductComponent onHandleCounter={(value) => this.handleCounter(value)} onHandleCart={(value) => this.handleCart(value)} id="3" title="Pecel" desc="Joss" price="8.000" image="https://asset.kompas.com/crops/etxkCgz_0N5ZbdP6YGJScpobPVk=/60x23:959x622/750x500/data/photo/2020/11/05/5fa3f16d9c1cf.jpg" />
                     <ProductComponent onHandleCounter={(value) => this.handleCounter(value)} onHandleCart={(value) => this.handleCart(value)} id="4" title="Nasi Goreng" desc="Mantap" price="15.000" image="https://www.masakapahariini.com/wp-content/uploads/2019/01/nasi-goreng-jawa-500x300.jpg" />
                     <ProductComponent onHandleCounter={(value) => this.handleCounter(value)} onHandleCart={(value) => this.handleCart(value)} id="5" title="Nasi Padang" desc="Wenakkk" price="15.000" image="https://ik.imagekit.io/tvlk/cul-asset/guys1L+Yyer9kzI3sp-pb0CG1j2bhflZGFUZOoIf1YOBAm37kEUOKR41ieUZm7ZJ/tvlk-prod-cul-assets/culinary/asset/REST_Nas-1059x720-FIT_AND_TRIM-b8f8e1ba5da08927a6aa082ded6a487f.jpeg?tr=q-40,c-at_max,w-1080,h-1920&_src=imagekit" />
-
                 </div>
             </Fragment>
 
