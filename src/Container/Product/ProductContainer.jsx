@@ -26,32 +26,7 @@ class ProductContainer extends Component {
         },() => localStorage.setItem("numoforder", this.state.order))
     }
 
-    handleCart = (value) => {
-        let cart = localStorage.getItem("cart");
-        if (cart !== "") {
-            var jsonCart = JSON.parse(cart);
-            if (jsonCart.length > 0) {
-                var isexist = false;
-                for (var i = 0; i < jsonCart.length; i++) {
-                    if (jsonCart[i].id_product === value.id_product) {
-                        jsonCart[i].qty = value.qty;
-                        jsonCart[i].total = value.total;
-                        isexist = true;
-                    }
-                }
-                if(isexist === false){
-                    jsonCart.push(value);
-                }
-            } else {
-                jsonCart = [value];
-            }
-        } else {
-            jsonCart = [value];
-        }
-        var resultcart = JSON.stringify(jsonCart);
-        localStorage.setItem("cart", resultcart);
-        console.log(resultcart);
-    }
+    
 
     render() {
         return (

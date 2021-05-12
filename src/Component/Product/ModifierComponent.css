@@ -52,3 +52,120 @@
     padding: 0px 5px;
     font-family: 'Poppins';
 }
+
+.label-modifier img {
+    width: 50px;
+    height: 50px;
+}
+
+.title-modifier {
+    font-size: 15px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.desc-modifier {
+    font-size: 12px;
+    margin: 0;
+    color: #ccc;
+}
+
+.price-modifier {
+    font-size: 14px;
+    font-weight: bold;
+    color: #16a085;
+}
+
+.detail-modifier {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 46%;
+}
+
+.checkmark {
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.label-modifier:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+.label-modifier input:checked~.checkmark {
+    background-color: #16a085;
+}
+
+.checkmark:after {
+    content: "";
+    display: none;
+}
+
+.label-modifier input:checked ~ .checkmark:after {
+    display: block;
+  }
+
+.label-modifier .checkmark:after {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+}
+
+.label-modifier {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    width: 100%;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.item-modifier {
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 6px 4px 0px #ccc;
+    padding: 10px 0px;
+    border-radius: 30px;
+}
+
+.list-modifier {
+    margin: 20px 20px 40px 20px;
+}
+
+#modifier {
+    width: 0;
+}
+
+#btn-add-cart{
+    background-color: #16a085;
+    margin: 0px 20px;
+    padding: 10px;
+    display: flex;
+}
+ #btn-add-cart{
+     font-size: 15px;
+     font-weight: bold;
+     border-radius: 20px;
+     position: sticky;
+     bottom: 20px;
+     left: 0;
+     right: 0;
+ }
+
+ #btn-add-cart .tot-cart{
+    color: #fff;
+    font-size: 15px;
+ }
+
+ .tit-cart{
+    width: 75%;
+ }

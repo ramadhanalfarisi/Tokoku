@@ -9,38 +9,6 @@ class ProductComponent extends Component {
         order: 0
     }
 
-    onHandleCounter = (value) => {
-        this.props.onHandleCounter(value)
-        this.handleCart()
-    }
-
-    handleCart = () => {
-        var price = parseInt(this.props.price.replaceAll(".", ""));
-        var qty = parseInt(this.state.order);
-        var data = {
-            id_product: this.props.id,
-            name_product: this.props.title,
-            price_product: this.props.price,
-            qty: this.state.order,
-            total: price * qty
-        };
-        this.props.onHandleCart(data);
-    }
-
-    plusOrder = () => {
-        this.setState({
-            order: this.state.order + 1
-        }, () => this.onHandleCounter(1))
-    }
-
-    minOrder = () => {
-        if (this.state.order > 0) {
-            this.setState({
-                order: this.state.order - 1
-            }, () => this.onHandleCounter(-1))
-        }
-    }
-
     componentDidMount() {
         let cart = localStorage.getItem("cart");
         if (cart !== "") {
@@ -59,6 +27,7 @@ class ProductComponent extends Component {
 
     handleModifier = () => {
         let data = {
+            id: this.props.id,
             image : this.props.image,
             title : this.props.title,
             desc: this.props.desc,
@@ -76,14 +45,6 @@ class ProductComponent extends Component {
                     <p className="card-desc">{this.props.desc}</p>
                     <p className="card-price">Rp. {this.props.price}</p>
                 </div>
-
-                {/* <div className="counter">
-                    <button className="plus" onClick={this.plusOrder}>+</button>
-                    <div className="num">
-                        <span>{this.state.order}</span>
-                    </div>
-                    <button className="min" onClick={this.minOrder}>-</button>
-                </div> */}
             </div>
         )
     }

@@ -19,11 +19,16 @@ class HomeContainer extends Component {
             order: 0
         }
     }
+
+    handleModifier = () => {
+        this.props.handleMod(false, "");
+    }
+
     render() {
         return (
             <BrowserRouter>
                 <Fragment>
-                    <div className={this.props.modshow === true ? "back-dark" : "back-transparent"}>
+                    <div className={this.props.modshow === true ? "back-dark" : "back-transparent"} onClick={() => this.handleModifier()}>
                     </div>
                     <SideBarComponent />
                     <div className="part-2">
@@ -53,7 +58,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return{
-        handleMod : (value) => dispatch({type : 'HANDLE_MOD', value:value})
+        handleMod : (value, data) => dispatch({type : 'HANDLE_MOD', value:value, data:data})
     }
 }
 
