@@ -31,7 +31,8 @@ class ModifierComponent extends Component {
         }
     }
 
-    handleCartToLocalStorage = (value) => {
+    handleCartToLocalStorage = () => {
+        var value = this.state.dataorder;
         let cart = localStorage.getItem("cart");
         if (cart !== "") {
             var jsonCart = JSON.parse(cart);
@@ -39,8 +40,8 @@ class ModifierComponent extends Component {
                 var isexist = false;
                 for (var i = 0; i < jsonCart.length; i++) {
                     if (jsonCart[i].id_product === value.id_product) {
-                        jsonCart[i].qty = value.qty;
-                        jsonCart[i].total = value.total;
+                        jsonCart[i].qty += value.qty;
+                        jsonCart[i].total += value.total;
                         isexist = true;
                     }
                 }
@@ -58,19 +59,61 @@ class ModifierComponent extends Component {
         console.log(resultcart);
     }
 
+    handleChangeModifier = (data, ischeck) => {
+        var dataorder = this.state.dataorder;
+        if (dataorder !== []) {
+            if (dataorder.modifier.length <= 0) {
+                if (ischeck === true) {
+                    dataorder.modifier.push(data);
+                    dataorder.priceprodmod += parseInt(data.price);
+                    dataorder.total = dataorder.priceprodmod * parseInt(dataorder.qty)
+                }
+            } else {
+                for (let i = 0; i < dataorder.modifier.length; i++) {
+                    if (data.id === dataorder.modifier[i].id) {
+                        if (ischeck === false) {
+                            dataorder.priceprodmod -= parseInt(data.price);
+                            dataorder.total = dataorder.priceprodmod * parseInt(dataorder.qty)
+                            dataorder.modifier.splice(i, 1);
+                        }
+                    } else {
+                        if (ischeck === true) {
+                            dataorder.modifier.push(data);
+                            dataorder.priceprodmod += parseInt(data.price);
+                            dataorder.total = dataorder.priceprodmod * parseInt(dataorder.qty)
+                        }
+                    }
+                }
+            }
+        }
+
+        this.setState({
+            dataorder: dataorder
+        }, () => console.log(dataorder))
+    }
+
     handleCart = () => {
         var price = parseInt(this.props.datamod.price.replaceAll(".", ""));
         var qty = parseInt(this.state.numoforder);
+        var data;
         if (qty > 0) {
-            var data = {
-                image: this.props.datamod.image,
-                id_product: this.props.datamod.id,
-                name_product: this.props.datamod.title,
-                price_product: this.props.datamod.price,
-                desc_product: this.props.datamod.desc,
-                qty: this.state.numoforder,
-                total: price * qty
-            };
+            if (this.state.dataorder.length <= 0) {
+                data = {
+                    image: this.props.datamod.image,
+                    id_product: this.props.datamod.id,
+                    name_product: this.props.datamod.title,
+                    price_product: price,
+                    desc_product: this.props.datamod.desc,
+                    qty: this.state.numoforder,
+                    total: price * qty,
+                    modifier: [],
+                    priceprodmod: price
+                };
+            } else {
+                data = this.state.dataorder;
+                data.qty = qty;
+                data.total = data.priceprodmod * qty;
+            }
         } else {
             data = [];
         }
@@ -117,13 +160,13 @@ class ModifierComponent extends Component {
                     <button className="min" onClick={this.minOrder}>-</button>
                 </div>
                 <div className="list-modifier">
-                    <ChildModifierComponent id="1" title="Tempe" desc="ini Tempe" price="1000"/>
-                    <ChildModifierComponent id="2" title="Peyek" desc="ini Peyek" price="1000"/>
-                    <ChildModifierComponent id="3" title="Sambel" desc="ini Sambel" price="1000"/>
+                    <ChildModifierComponent onHandleChangeModifier={(data, ischeck) => this.handleChangeModifier(data, ischeck)} type="checkbox" id="1" image="https://sgp1.digitaloceanspaces.com/indonesiawindow/2020/10/Tempe.jpg" title="Tempe" desc="ini Tempe" price="1000" />
+                    <ChildModifierComponent onHandleChangeModifier={(data, ischeck) => this.handleChangeModifier(data, ischeck)} type="checkbox" id="2" image="https://sgp1.digitaloceanspaces.com/indonesiawindow/2020/10/Tempe.jpg" title="Peyek" desc="ini Peyek" price="1000" />
+                    <ChildModifierComponent onHandleChangeModifier={(data, ischeck) => this.handleChangeModifier(data, ischeck)} type="checkbox" id="3" image="https://sgp1.digitaloceanspaces.com/indonesiawindow/2020/10/Tempe.jpg" title="Sambel" desc="ini Sambel" price="1000" />
                 </div>
-                <div id="btn-add-cart">
+                <div id="btn-add-cart" onClick={() => this.handleCartToLocalStorage()}>
                     <span className="tit-cart">Add to Cart</span>
-                    <span className="tot-cart">Rp. 20.000</span>
+                    <span className="tot-cart">Rp. {this.state.numoforder > 0 ? parseInt(this.state.dataorder.total).toLocaleString("id") : 0}</span>
                 </div>
             </div>
         )

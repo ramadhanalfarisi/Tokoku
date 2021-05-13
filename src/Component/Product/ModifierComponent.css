@@ -87,11 +87,18 @@
     height: 25px;
     width: 25px;
     background-color: #eee;
-    border-radius: 50%;
     margin-right: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.radio-btn {
+    border-radius: 50%;
+}
+
+.check-btn {
+    border-radius: 20%;
 }
 
 .label-modifier:hover input~.checkmark {
@@ -107,15 +114,25 @@
     display: none;
 }
 
-.label-modifier input:checked ~ .checkmark:after {
-    display: block;
-  }
 
-.label-modifier .checkmark:after {
+.label-modifier input:checked~.checkmark:after {
+    display: block;
+}
+.label-modifier .radio-btn:after {
     width: 8px;
     height: 8px;
     border-radius: 50%;
     background: white;
+}
+
+.label-modifier .check-btn:after {
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
 }
 
 .label-modifier {
@@ -141,31 +158,32 @@
     margin: 20px 20px 40px 20px;
 }
 
-#modifier {
+.modifier {
     width: 0;
 }
 
-#btn-add-cart{
+#btn-add-cart {
     background-color: #16a085;
     margin: 0px 20px;
     padding: 10px;
     display: flex;
 }
- #btn-add-cart{
-     font-size: 15px;
-     font-weight: bold;
-     border-radius: 20px;
-     position: sticky;
-     bottom: 20px;
-     left: 0;
-     right: 0;
- }
 
- #btn-add-cart .tot-cart{
+#btn-add-cart {
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 20px;
+    position: sticky;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+}
+
+#btn-add-cart .tot-cart {
     color: #fff;
     font-size: 15px;
- }
+}
 
- .tit-cart{
+.tit-cart {
     width: 75%;
- }
+}
