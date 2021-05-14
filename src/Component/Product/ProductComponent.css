@@ -5,6 +5,7 @@
     display: inline-block;
     margin: 5px;
     text-align: center;
+    transition: 0.5s;
 }
 
 .card-product img {
