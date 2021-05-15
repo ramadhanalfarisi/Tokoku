@@ -23,6 +23,9 @@ const getTitlePath = (pathname) => {
   } else if (pathname === '/account') {
     title = 'Account';
     path = 'account';
+  } else if (pathname === '/cart') {
+    title = 'Cart';
+    path = 'cart';
   }
   return {
     title: title,

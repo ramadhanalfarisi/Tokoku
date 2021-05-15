@@ -1,0 +1,38 @@
+.card-bill {
+    border-radius: 20px;
+    box-shadow: 0px 6px 4px 0px #ccc;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    border: 2px solid #16a085;
+    margin-bottom: 10px;
+}
+
+.detail-bill {
+    width: 80%;
+}
+
+.title-bill,
+.desc-bill {
+    margin: 0;
+}
+
+.title-bill{
+    font-weight: bold;
+}
+
+.desc-bill{
+    font-size: 15px;
+    color: #ccc;
+}
+
+.date-bill {
+    margin: 10px 0px 0px 0px;
+}
+
+.price-bil {
+    width: 20%;
+    text-align: right;
+    color: #16a085;
+    font-weight: bold;
+}

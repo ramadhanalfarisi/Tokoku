@@ -2,8 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 import backIcon from '../../assets/icons/left-arrow.svg'
 import searchIcon from '../../assets/icons/loupe.svg'
+import cartIcon from '../../assets/icons/cart.svg'
 import './TopBarComponent.css'
-import { useHistory } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 
 const TopBarComponent = (props) => {
@@ -24,6 +25,13 @@ const TopBarComponent = (props) => {
                 <img src={searchIcon} alt="" className="icon-input" />
                 <input type="text" name="" id="search" placeholder="Search..." />
             </div>
+            <Link to="/cart">
+                <div className="cart-icon">
+                    <img src={cartIcon} alt="" className="cart-btn" />
+                    <span className="numoforder">0</span>
+                </div>
+            </Link>
+
         </div>
     )
 }
