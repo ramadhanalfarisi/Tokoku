@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import imageMessi from '../../assets/images/messi.jpeg'
+import './AccountContainer.css'
 
 class AccountContainer extends Component {
 
@@ -10,8 +12,16 @@ class AccountContainer extends Component {
 
     render() {
         return (
-            <div>
-                Account
+            <div className="account-container">
+                <div className="img-profile-container">
+                    <img src={imageMessi} alt="" id="img-profile"/>
+                    <button className="btn-change-img">change avatar</button>
+                </div>
+                <p>Name</p>
+                <div className="row">
+                    <input type="text" className="name" id="firstname"/>
+                    <input type="text" className="name" id="lastname"/>
+                </div>
             </div>
         )
     }

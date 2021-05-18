@@ -13,6 +13,35 @@ const TopBarComponent = (props) => {
     const goBack = () => {
         history.goBack()
     }
+
+    const showSearch = (path) => {
+        if (path !== 'cart' && path !== 'dashboard') {
+            return (
+                <div className="search-input">
+                    <img src={searchIcon} alt="" className="icon-input" />
+                    <input type="text" name="" id="search" placeholder="Search..." />
+                </div>
+            )
+        } else {
+            return (
+                <div className="hidden-search"></div>
+            )
+        }
+    }
+
+    const showCart = (path) => {
+        if (path !== 'cart') {
+            return (
+                <Link to="/cart">
+                    <div className="cart-icon">
+                        <img src={cartIcon} alt="" className="cart-btn" />
+                        <span className="numoforder">0</span>
+                    </div>
+                </Link>
+            )
+        }
+    }
+
     return (
         <div className="topbar">
             <button id="top-bar-back" onClick={goBack}>
@@ -21,16 +50,8 @@ const TopBarComponent = (props) => {
             <div className="detail-link">
                 <span>{props.title}</span>
             </div>
-            <div className="search-input">
-                <img src={searchIcon} alt="" className="icon-input" />
-                <input type="text" name="" id="search" placeholder="Search..." />
-            </div>
-            <Link to="/cart">
-                <div className="cart-icon">
-                    <img src={cartIcon} alt="" className="cart-btn" />
-                    <span className="numoforder">0</span>
-                </div>
-            </Link>
+            {showSearch(props.path)}
+            {showCart(props.path)}
 
         </div>
     )

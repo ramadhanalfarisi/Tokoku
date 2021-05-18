@@ -36,7 +36,7 @@
     margin-top: 10px;
     font-size: 18px;
     font-weight: 600;
-    color: crimson;
+    color: #16a085;
 }
 
 .product-part{
@@ -55,7 +55,7 @@
 }
 .tot-cart{
     font-size: 20px;
-    color: crimson;
+    color: #16a085;
     margin: 0;
 }
 .cash{
@@ -76,7 +76,7 @@
 }
 
 .btn-back{
-    background-color: crimson;
+    background-color: #d63031;
     padding: 10px;
     border: none;
     border-radius: 5px;
@@ -87,7 +87,7 @@
 }
 
 .btn-pay{
-    background-color: forestgreen;
+    background-color: #16a085;
     padding: 10px;
     border: none;
     border-radius: 5px;
