@@ -15,7 +15,7 @@ const TopBarComponent = (props) => {
     }
 
     const showSearch = (path) => {
-        if (path !== 'cart' && path !== 'dashboard') {
+        if (path !== 'cart' && path !== 'dashboard' && path !== 'account') {
             return (
                 <div className="search-input">
                     <img src={searchIcon} alt="" className="icon-input" />

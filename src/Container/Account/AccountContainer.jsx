@@ -19,9 +19,18 @@ class AccountContainer extends Component {
                 </div>
                 <p>Name</p>
                 <div className="row">
-                    <input type="text" className="name" id="firstname"/>
-                    <input type="text" className="name" id="lastname"/>
+                    <input type="text" className="input-field col-6" id="firstname" placeholder="First Name"/>
+                    <input type="text" className="input-field col-6" id="lastname" placeholder="Last Name"/>
                 </div>
+                <p>Birthday</p>
+                <div className="row">
+                    <input type="text" className="input-field col-12" id="birthday" placeholder="Birthday"/>
+                </div>
+                <p>Phone Number</p>
+                <div className="row">
+                    <input type="text" className="input-field col-12" id="phone" placeholder="Phone Number"/>
+                </div>
+
             </div>
         )
     }
