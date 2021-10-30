@@ -8,7 +8,7 @@ import HomeContainer from './Container/Home/HomeContainer';
 
 const getTitlePath = (pathname) => {
   let title, path = "";
-  if (pathname === '/') {
+  if (pathname === '/dashboard') {
     title = 'Dashboard';
     path = 'dashboard';
   } else if (pathname === '/food') {

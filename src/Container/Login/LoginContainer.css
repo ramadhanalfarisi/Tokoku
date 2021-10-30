@@ -1,0 +1,160 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+#brandLogin{
+    padding-top: 80px;
+}
+
+#logo-login-1 {
+    color: #2ab99d;
+    font-weight: bold;
+    font-size: 30px;
+    font-family: 'Poppins';
+}
+
+#logo-login-2 {
+    color: #fff;
+    font-weight: bold;
+    font-size: 30px;
+    font-family: 'Poppins';
+}
+
+#root{
+    height: 100%;
+}
+
+.main-page {
+    background-image: linear-gradient(180deg, #0b6b58, #1a967d, #33ccad, #25af94);
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+}
+
+.dis-flex {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.align-center {
+    justify-content: center;
+}
+
+.bg-primary {
+    background-color: #16a085;
+}
+
+.bg-light {
+    background-color: #ffffff;
+}
+
+.card {
+    padding: 10px;
+    box-shadow: 0px 4px 6px 0px #ccc;
+    border-radius: 10px;
+    max-width: 500px;
+}
+
+.input-group {
+    margin: 0 auto;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.input-field-login {
+    border-bottom: 2px solid #16a085;
+    max-width: 300px;
+}
+
+.form-control {
+    width: 100%;
+    display: block;
+    padding: 0px 5px
+}
+
+.form-control:focus > .input-field-login {
+    outline: none;
+    border-color: #16a085;
+}
+
+#cardLogin {
+    margin: 0 auto;
+    margin-top: 50px;
+    align-items: center;
+}
+
+.text-light {
+    color: #ffffff;
+}
+.text-primary {
+    color: #16a085;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.form-control {
+    outline: none;
+    border: none;
+    font-size: 15px;
+    background-color: transparent;
+    font-family: 'Poppins';
+}
+
+.form-control::placeholder {
+    color: #16a085;
+}
+
+.btn {
+    border: none;
+    padding: 8px 20px;
+    margin: 20px 10px;
+    border-radius: 5px;
+}
+
+.btn-primary {
+    background-color: #16a085;
+    color: #ffffff;
+    font-weight: bold;
+    border: 2px solid #16a085;
+}
+
+.btn-second {
+    background-color: #ccc;
+    color: #000;
+    font-weight: bold;
+}
+
+.btn-light {
+    background-color: #fff;
+    color: #16a085;
+    font-weight: bold;
+    border: 2px solid #16a085;
+}
+
+.btn:hover{
+    filter: brightness(85%);
+}
+
+.mt-4 {
+    margin-top: 20px;
+}
+
+.p-4{
+    padding: 20px;
+}
+
+.icon-input-login{
+    padding: 5px 10px;
+    background-color: #16a085;
+}
+
+#form-login{
+    margin-top: 30px;
+}

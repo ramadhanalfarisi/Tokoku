@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
 import backIcon from '../../assets/icons/left-arrow.svg'
 import searchIcon from '../../assets/icons/loupe.svg'
@@ -15,11 +15,28 @@ const TopBarComponent = (props) => {
     }
 
     const showSearch = (path) => {
-        if (path !== 'cart' && path !== 'dashboard' && path !== 'account') {
+        if (path === 'food') {
             return (
-                <div className="search-input">
-                    <img src={searchIcon} alt="" className="icon-input" />
-                    <input type="text" name="" id="search" placeholder="Search..." />
+                <div className="dis-flex" id="filter-view">
+                    <div>
+                        <label htmlFor="filter-product" className="label-input">Category Filter</label>
+                        <br />
+                        <div className="filter-input">
+                            <select className="filter-control" name="filter-product" id="filter-product">
+                                <option value="makanan">Makanan</option>
+                                <option value="makanan">Minuman</option>
+                                <option value="makanan">Snack</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label htmlFor="filter-product" className="label-input">Product Search</label>
+                        <br />
+                        <div className="search-input">
+                            <img src={searchIcon} alt="" className="icon-input" />
+                            <input type="text" name="" id="search" placeholder="Search by product name" />
+                        </div>
+                    </div>
                 </div>
             )
         } else {
@@ -43,17 +60,21 @@ const TopBarComponent = (props) => {
     }
 
     return (
-        <div className="topbar">
-            <button id="top-bar-back" onClick={goBack}>
-                <img src={backIcon} alt="" className="icon-btn" />
-            </button>
-            <div className="detail-link">
-                <span>{props.title}</span>
+        <Fragment>
+            <div className="topbar">
+                <div className="dis-flex">
+                    <button id="top-bar-back" onClick={goBack}>
+                        <img src={backIcon} alt="" className="icon-btn" />
+                    </button>
+                    <div className="detail-link">
+                        <span>{props.title}</span>
+                    </div>
+                    {showCart(props.path)}
+                </div>
+                {showSearch(props.path)}
             </div>
-            {showSearch(props.path)}
-            {showCart(props.path)}
+        </Fragment>
 
-        </div>
     )
 }
 

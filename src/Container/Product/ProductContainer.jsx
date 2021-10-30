@@ -4,6 +4,7 @@ import ProductComponent from '../../Component/Product/ProductComponent'
 // import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 
+
 class ProductContainer extends Component {
     constructor(props) {
         super(props);
@@ -16,22 +17,22 @@ class ProductContainer extends Component {
         }
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.props.handlePath(window.location.pathname)
     }
 
     handleCounter = (newValue) => {
         this.setState({
             order: this.state.order + newValue
-        },() => localStorage.setItem("numoforder", this.state.order))
+        }, () => localStorage.setItem("numoforder", this.state.order))
     }
 
-    
+
 
     render() {
         return (
             <Fragment>
-                <div>
+                <div id="product-view">
                     <ProductComponent onHandleCounter={(value) => this.handleCounter(value)} onHandleCart={(value) => this.handleCart(value)} id="1" title="Ayam Geprek" desc="Wenak bos" price="10.000" image="https://upload.wikimedia.org/wikipedia/commons/2/24/Ayam_geprek.png" />
                     <ProductComponent onHandleCounter={(value) => this.handleCounter(value)} onHandleCart={(value) => this.handleCart(value)} id="2" title="Soto" desc="Mantap lur" price="12.000" image="https://www.masakapahariini.com/wp-content/uploads/2019/11/shutterstock_1469046305-780x440.jpg" />
                     <ProductComponent onHandleCounter={(value) => this.handleCounter(value)} onHandleCart={(value) => this.handleCart(value)} id="3" title="Pecel" desc="Joss" price="8.000" image="https://asset.kompas.com/crops/etxkCgz_0N5ZbdP6YGJScpobPVk=/60x23:959x622/750x500/data/photo/2020/11/05/5fa3f16d9c1cf.jpg" />
@@ -47,16 +48,16 @@ class ProductContainer extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        path : state.path,
+        path: state.path,
         title: state.title
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        handlePath: (value) => dispatch({ type: 'HANDLE_PATH', value : value})
+        handlePath: (value) => dispatch({ type: 'HANDLE_PATH', value: value })
     }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(ProductContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(ProductContainer)
 

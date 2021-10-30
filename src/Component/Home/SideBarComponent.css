@@ -80,3 +80,7 @@ a {
     margin-right: 10px;
     color: #fff;
 }
+
+.d-none{
+    display: none;
+}

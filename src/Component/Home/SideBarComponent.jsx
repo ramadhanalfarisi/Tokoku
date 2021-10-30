@@ -20,10 +20,10 @@ class SideBarComponent extends Component {
         return (
             <div className="sidebar">
                 <div className="logo-nav">
-                    <span className="logo-item" id="logo-1">Toko</span><span className="logo-item" id="logo-2">Kocak</span>
+                    <span className="logo-item" id="logo-1">TOKO</span><span className="logo-item" id="logo-2">CAK</span>
                 </div>
                 <div className="navbar">
-                    <Link to="/">
+                    <Link to="/dashboard">
                         <div className={this.props.path === 'dashboard' ? 'menu active' : 'menu'} onClick={() => this.handleClick('dashboard', 'Dashboard')}>
                             <img src={dashboardIcon} alt="" className="icon-menu" />
                             <span>Dashboard</span>

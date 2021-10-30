@@ -9,7 +9,8 @@ class ModifierComponent extends Component {
         super(props)
         this.state = {
             numoforder: 0,
-            dataorder: []
+            dataorder: [],
+            modifier: []
         }
     }
 
@@ -60,36 +61,28 @@ class ModifierComponent extends Component {
     }
 
     handleChangeModifier = (data, ischeck) => {
-        var dataorder = this.state.dataorder;
-        if (dataorder !== []) {
-            if (dataorder.modifier.length <= 0) {
-                if (ischeck === true) {
-                    dataorder.modifier.push(data);
-                    dataorder.priceprodmod += parseInt(data.price);
-                    dataorder.total = dataorder.priceprodmod * parseInt(dataorder.qty)
-                }
-            } else {
-                for (let i = 0; i < dataorder.modifier.length; i++) {
-                    if (data.id === dataorder.modifier[i].id) {
-                        if (ischeck === false) {
-                            dataorder.priceprodmod -= parseInt(data.price);
-                            dataorder.total = dataorder.priceprodmod * parseInt(dataorder.qty)
-                            dataorder.modifier.splice(i, 1);
-                        }
-                    } else {
-                        if (ischeck === true) {
-                            dataorder.modifier.push(data);
-                            dataorder.priceprodmod += parseInt(data.price);
-                            dataorder.total = dataorder.priceprodmod * parseInt(dataorder.qty)
-                        }
+        var modifier = this.state.modifier;
+        if (modifier.length <= 0) {
+            if (ischeck === true) {
+                modifier.push(data);
+            }
+        } else {
+            for (let i = 0; i < modifier.length; i++) {
+                if (data.id === modifier[i].id) {
+                    if (ischeck === false) {
+                        modifier.splice(i, 1);
+                    }
+                } else {
+                    if (ischeck === true) {
+                        modifier.push(data);
                     }
                 }
             }
         }
 
         this.setState({
-            dataorder: dataorder
-        }, () => console.log(dataorder))
+            modifier: modifier
+        }, () => console.log(modifier))
     }
 
     handleCart = () => {
@@ -97,6 +90,13 @@ class ModifierComponent extends Component {
         var qty = parseInt(this.state.numoforder);
         var data;
         if (qty > 0) {
+            var priceprodmod = price;
+            if (this.state.modifier.length > 0) {
+                var modifier = this.state.modifier;
+                modifier.forEach((item, index) => {
+                    priceprodmod += item.price;
+                })
+            }
             if (this.state.dataorder.length <= 0) {
                 data = {
                     image: this.props.datamod.image,
@@ -105,9 +105,9 @@ class ModifierComponent extends Component {
                     price_product: price,
                     desc_product: this.props.datamod.desc,
                     qty: this.state.numoforder,
-                    total: price * qty,
-                    modifier: [],
-                    priceprodmod: price
+                    total: priceprodmod * qty,
+                    modifier: this.state.modifier,
+                    priceprodmod: priceprodmod
                 };
             } else {
                 data = this.state.dataorder;
@@ -160,9 +160,9 @@ class ModifierComponent extends Component {
                     <button className="min" onClick={this.minOrder}>-</button>
                 </div>
                 <div className="list-modifier">
-                    <ChildModifierComponent onHandleChangeModifier={(data, ischeck) => this.handleChangeModifier(data, ischeck)} type="checkbox" id="1" image="https://sgp1.digitaloceanspaces.com/indonesiawindow/2020/10/Tempe.jpg" title="Tempe" desc="ini Tempe" price="1000" />
-                    <ChildModifierComponent onHandleChangeModifier={(data, ischeck) => this.handleChangeModifier(data, ischeck)} type="checkbox" id="2" image="https://sgp1.digitaloceanspaces.com/indonesiawindow/2020/10/Tempe.jpg" title="Peyek" desc="ini Peyek" price="1000" />
-                    <ChildModifierComponent onHandleChangeModifier={(data, ischeck) => this.handleChangeModifier(data, ischeck)} type="checkbox" id="3" image="https://sgp1.digitaloceanspaces.com/indonesiawindow/2020/10/Tempe.jpg" title="Sambel" desc="ini Sambel" price="1000" />
+                    <ChildModifierComponent onHandleChangeModifier={(data, ischeck) => this.handleChangeModifier(data, ischeck)} type="checkbox" id="1" image="https://sgp1.digitaloceanspaces.com/indonesiawindow/2020/10/Tempe.jpg" title="Tempe" desc="ini Tempe" price={1000} />
+                    <ChildModifierComponent onHandleChangeModifier={(data, ischeck) => this.handleChangeModifier(data, ischeck)} type="checkbox" id="2" image="https://sgp1.digitaloceanspaces.com/indonesiawindow/2020/10/Tempe.jpg" title="Peyek" desc="ini Peyek" price={1000} />
+                    <ChildModifierComponent onHandleChangeModifier={(data, ischeck) => this.handleChangeModifier(data, ischeck)} type="checkbox" id="3" image="https://sgp1.digitaloceanspaces.com/indonesiawindow/2020/10/Tempe.jpg" title="Sambel" desc="ini Sambel" price={1000} />
                 </div>
                 <div id="btn-add-cart" onClick={() => this.handleCartToLocalStorage()}>
                     <span className="tit-cart">Add to Cart</span>
